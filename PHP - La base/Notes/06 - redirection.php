@@ -1,3 +1,13 @@
+<?php
+
+	// if (!$loggedIn) {
+	// 	header("location:index.php");
+	// 	exit;
+	// }
+
+	// $sql = "DELETE FROM USERS;";
+	// execute($sql);
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
