@@ -8,5 +8,6 @@
 		<div id="container">
 			<header>
 				<a href="index.php">Accueil</a> - 
-				<a href="prive.php">Privé</a> 	
+				<a href="prive.php">Privé</a> 	 - 
+				<a href="deconnection.php">Déconnexion</a> 	
 			</header>
