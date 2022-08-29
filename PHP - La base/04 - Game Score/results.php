@@ -1,3 +1,8 @@
+<?php
+    require_once("action/resultsAction.php");
+
+    $data = execute();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,11 +32,13 @@
                     Résultats
                 </h1>
                 
-                <div>2020-12-12 8:23:13 - 8.354 secondes</div>
-                <div>2020-12-11 12:43:44 -  7.123 secondes</div>
-                <div>2020-12-11 11:20:47 - 5.123 secondes</div>
-                <div>2020-12-11 11:18:01 - 7.13 secondes</div>
-                <div>2020-12-11 10:20:36 - 10.984 secondes</div>
+                <?php
+                    foreach($data["lines"] as $line) {
+                        ?>
+                        <div><?= $line ?></div>                        
+                        <?php
+                    }
+                ?>
             </div>
         </div>
     </body>

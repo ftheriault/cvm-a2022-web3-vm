@@ -75,6 +75,8 @@ const activateMole = () => {
     }    
     else if (totalTime == null) {
         totalTime = new Date() - startTime;
+        document.querySelector("button").style.display = "inline";
+        document.querySelector("#pointage").value = totalTime;
         spriteList.push(new Tractor(totalTime));
     }
 }
