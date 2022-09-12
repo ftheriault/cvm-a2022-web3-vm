@@ -15,6 +15,12 @@
         }
 
         public function execute() {
+            if (!empty($_GET["logout"])) {
+                session_unset();
+                session_destroy();
+                session_start();
+            }
+
             if (empty($_SESSION["visibility"])) {
                 $_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
             }
@@ -24,7 +30,11 @@
 				exit;
 			}
 
-            $this->executeAction();
+            $data = $this->executeAction();
+            $data["username"] = $_SESSION["username"] ?? "Invité";
+            $data["isSignedIn"] = $_SESSION["visibility"] > CommonAction::$VISIBILITY_PUBLIC;
+
+            return $data;
         }
 
         // Design pattern : Template method

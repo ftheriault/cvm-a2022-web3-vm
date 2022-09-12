@@ -8,15 +8,14 @@
 		}
 
 		protected function executeAction() {
-
 			$hasConnectionError = false;
 
 			if (isset($_POST["username"])) {
-				if ($_POST["username"] == "john" &&
-					$_POST["pwd"] == "qwerty") {
-					
+				$result = UserDAO::authenticate($_POST["username"], $_POST["pwd"]);
+
+				if (!empty($result)) {					
 					$_SESSION["username"] = $_POST["username"];
-					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
+					$_SESSION["visibility"] = $result["visibility"];
 
 					header("location:home.php");
 					exit;
