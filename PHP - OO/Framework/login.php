@@ -1,8 +1,8 @@
 <?php
 	require_once("action/LoginAction.php");
 
-	$data = [];
-	$data["hasConnectionError"] = false;
+	$action = new LoginAction();
+	$data = $action->execute();
 
 	require_once("partial/header.php");
 ?>
