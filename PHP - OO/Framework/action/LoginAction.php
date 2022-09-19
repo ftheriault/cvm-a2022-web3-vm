@@ -15,7 +15,7 @@
 				$result = UserDAO::authenticate($_POST["username"], $_POST["pwd"]);
 
 				if (!empty($result)) {					
-					$_SESSION["username"] = $_POST["username"];
+					$_SESSION["username"] = $result["username"];
 					$_SESSION["visibility"] = $result["visibility"];
 
 					header("location:home.php");
