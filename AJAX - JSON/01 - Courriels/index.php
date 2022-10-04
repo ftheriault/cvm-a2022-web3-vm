@@ -12,8 +12,30 @@
 			<link rel="stylesheet" href="css/global.css">
 			<script>
 				const checkEmails = () => {
-							
+					let formData = new FormData();
+					formData.append("username", "ken");
+					formData.append("password", "AAAaaa111");
+
+					fetch("ajax.php", {
+						method : "post",
+						body: formData
+					})
+					.then(response => response.json()) // (JSON decode) Le résultat, fait un JSON.parse dessus
+					.then(data => {
+						let node = document.querySelector("#contenantCourriels");
+						// node.innerHTML = data; // innerText
+						// console.log(data);
+
+						node.firstChild.remove();
+						let textNode = document.createTextNode(data);
+						node.append(textNode);
+						console.log(2)
+						setTimeout(checkEmails, 4000);
+					})
+					
+					console.log(1)
 				}		
+				checkEmails();
 			</script>
 	</head>
 	<body>
